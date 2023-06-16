@@ -83,7 +83,7 @@ namespace StoreeTaskk.ViewModels
                 {
                     if (products[i].Name == ProductName)
                     {
-                        DialogResult dialog = System.Windows.Forms.MessageBox.Show("Are you sure you want to delete the product?", "Delete product", MessageBoxButtons.YesNo);
+                        DialogResult dialog = System.Windows.Forms.MessageBox.Show("Delete ?", "Delete product", MessageBoxButtons.YesNo);
                         if (dialog == DialogResult.Yes)
                         {
                             DeleteProduct(products, i);

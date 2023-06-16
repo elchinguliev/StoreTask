@@ -19,18 +19,18 @@
         <!--<Image Grid.Row="0" Source="/Images/store symbol.jpg"  Margin="-500,0,0,0"></Image>-->
         <Image Grid.Row="0" Source="https://img.etimg.com/thumb/width-1200,height-900,imgsize-122620,resizemode-1,msid-75214721/industry/services/retail/future-group-negotiates-rents-for-its-1700-stores.jpg" Margin="-303,-10,-197,10" RenderTransformOrigin="0.562,0.528"/>
 
-        <!--<ComboBox ItemsSource="{Binding CategoriesComboBoxItemSource}" SelectedItem="{Binding SelectedItem}"  SelectedIndex="{Binding SelectedIndex}"  Width="200" Height="40">
-            -->
-        <!--<i:Interaction.Triggers>
+        <ComboBox ItemsSource="{Binding CategoriesComboBoxItemSource}" SelectedItem="{Binding SelectedItem}"  SelectedIndex="{Binding SelectedIndex}"  Width="200" Height="40" Margin="766,393,-166,-79" Grid.Row="1">
+            
+        <i:Interaction.Triggers>
                 <i:EventTrigger EventName="SelectionChanged">
                     <i:InvokeCommandAction Command="{Binding SelectionChanged}"></i:InvokeCommandAction>
                 </i:EventTrigger>
-            </i:Interaction.Triggers>-->
-        <!--
-        </ComboBox >-->
-        <ComboBox ItemsSource="{Binding CategoriesComboBoxItemSource}" SelectedItem="{Binding SelectedItem}"  SelectedIndex="{Binding SelectedIndex}"  Width="200" Height="40" Margin="600,397,0,-83" Grid.Row="1"></ComboBox>
+            </i:Interaction.Triggers>
+        
+        </ComboBox >
+       
 
-        <Button Background="Red" Command="{Binding AddProductCommand}" Width="200" Height="40" Margin="600,474,0,-160" Content="Add product" FontSize="20" FontWeight="UltraBlack" Grid.Row="1"  >
+        <Button Background="Red" Command="{Binding AddProductCommand}" Width="200" Height="40" Margin="766,464,-166,-150" Content="Add product" FontSize="20" FontWeight="UltraBlack" Grid.Row="1"  >
 
         </Button>
 

@@ -18,11 +18,11 @@
 
         <Image Source="{Binding Image}" Grid.Row="0" Name="previre" Width="250" Height="150"></Image>
 
-      
 
-        <TextBlock Text="{Binding ProductName}" Grid.Row="1" Name="my" Margin="30,15,520,0" VerticalAlignment="Top" Width="250" Height="60" TextWrapping="Wrap" TextOptions.TextFormattingMode="Ideal" FontSize="20" Background="Red"  FontWeight="UltraBlack" Canvas.Bottom="110"/>
 
-        <Label BorderBrush="Black" Grid.Row="1" Margin="325,30,315,0" Content="{Binding ProductPrice,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" Canvas.Left="25" VerticalAlignment="Top" Width="160" Height="30" TextOptions.TextFormattingMode="Ideal" FontSize="20" Background="White"  FontWeight="UltraBlack" />
+        <TextBlock Text="{Binding ProductName}" Grid.Row="1" Name="my" Margin="30,15,520,0" VerticalAlignment="Top" Width="250" Height="35" TextWrapping="Wrap" TextOptions.TextFormattingMode="Ideal" FontSize="20" Background="Red"  FontWeight="UltraBlack" Canvas.Bottom="110"/>
+
+        <Label BorderBrush="Black" Grid.Row="1" Margin="320,10,320,0" Content="{Binding ProductPrice,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" Canvas.Left="25" VerticalAlignment="Top" Width="160" Height="45" TextOptions.TextFormattingMode="Ideal" FontSize="20" Background="Transparent"  FontWeight="UltraBlack" />
 
         <Button Command="{Binding DeleteCommand}" Grid.Row="1" Margin="602,8,98,52" Width="100" Height="40" Canvas.Bottom="10" Background="Red" Canvas.Left="20" Content="Delete" FontSize="20" FontWeight="UltraBlack">
         </Button>

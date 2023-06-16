@@ -47,17 +47,13 @@ namespace StoreeTaskk.Services
         {
             ProductUserControl pus;
             ProductUserControlViewModel productUserControlViewModel;
-            int left = 70;
-            int up = 10;
-            int right = 0;
-            int down = 70;
+  
             pus = new ProductUserControl();
             productUserControlViewModel = new ProductUserControlViewModel();
             productUserControlViewModel.ProductName = name;
             productUserControlViewModel.ProductPrice = price;
             productUserControlViewModel.Image = image;
             productUserControlViewModel.Category = categoryId;
-            pus.Margin = new Thickness(left, up, right, down);
             pus.DataContext = productUserControlViewModel;
             App.wrapPanel.Children.Add(pus);
         }

@@ -69,7 +69,7 @@ namespace StoreeTaskk.ViewModels
 
             GetAll(products, categories);
 
-            SelectedIndex = categoryServices.SeacrhCategoryName("Butun mehsullar").Id - 1;
+            SelectedIndex = categoryServices.SeacrhCategoryName("All products").Id - 1;
 
             GetAllCategories(CategoriesComboBoxItemSource);
 
@@ -81,7 +81,7 @@ namespace StoreeTaskk.ViewModels
                 products.Clear();
                 CategoryService services = new CategoryService();
 
-                var category = services.SeacrhCategoryName("Butun mehsullar");
+                var category = services.SeacrhCategoryName("All products");
 
                 repo = new Reposs();
                 GetAllProducts(SelectedItem, category);
