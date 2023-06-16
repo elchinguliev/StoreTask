@@ -83,7 +83,6 @@ namespace StoreeTaskk.Repositories
             {
                 if (products[i].CategoryId == SelectedItem.Id || SelectedItem.Name == category.Name)
                 {
-                    //SelectionChangeCategoriesComboBox(products[i].Name, products[i].Prices, products[i].Image, products[i].CategoryId);
                     cs = new ProductUserControl();
                     foodUsercontrolViewModel = new ProductUserControlViewModel();
                     foodUsercontrolViewModel.ProductName = products[i].Name;
@@ -113,7 +112,6 @@ namespace StoreeTaskk.Repositories
 
                 sqlTransaction = conn.BeginTransaction();
 
-                //SqlCommand command = new SqlCommand("INSERT INTO Product(Name) VALUES(@name)", conn);
 
                 command.Transaction = sqlTransaction;
 
@@ -218,9 +216,6 @@ namespace StoreeTaskk.Repositories
                 var query = "UPDATE Product SET Name=@newname , Prices=@price WHERE Name=@oldname";
 
 
-                //SqlCommand command = conn.CreateCommand();
-                //command.CommandText = query;
-
                 SqlTransaction sqlTransaction = null;
 
                 sqlTransaction = conn.BeginTransaction();
@@ -266,7 +261,6 @@ namespace StoreeTaskk.Repositories
             ObservableCollection<Categories> categories = new ObservableCollection<Categories>();
             await GetAllCategories(categories);
 
-            //CategoriesComboBoxItemSource = categories;
 
             for (int i = 0; i < categories.Count; i++)
             {

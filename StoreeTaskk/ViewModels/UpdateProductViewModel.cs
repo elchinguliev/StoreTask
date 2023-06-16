@@ -10,7 +10,24 @@ using System.Windows;
 namespace StoreeTaskk.ViewModels
 {
     public class UpdateProductViewModel:BaseViewModel
-    {
+    {     
+        
+        
+        public UpdateProductViewModel()
+        {
+            UpdateProductCommand = new RelayCommand((obj) =>
+            {
+                if (NewProductName == null || NewProductName.Trim() == string.Empty || NewProductPrice <= 0)
+                {
+                    MessageBox.Show("Invalid Data");
+                }
+                else if (NewProductPrice != 0 && NewProductName != string.Empty)
+                {
+                    Update();
+                    MessageBox.Show("Item updated succesfully");
+                }
+            });
+        }
         public RelayCommand UpdateProductCommand { get; set; }
 
         private string productName;
@@ -60,21 +77,7 @@ namespace StoreeTaskk.ViewModels
             await repo.AddPanelUserControl();
         }
 
-        public UpdateProductViewModel()
-        {
-            UpdateProductCommand = new RelayCommand((obj) =>
-            {
-                if (NewProductName == null || NewProductName.Trim() == string.Empty || NewProductPrice <= 0)
-                {
-                    MessageBox.Show("Invalid Data");
-                }
-                else if (NewProductPrice != 0 && NewProductName != string.Empty)
-                {
-                    Update();
-                    MessageBox.Show("Item updated succesfully");
-                }
-            });
-        }
+
 
     }
 }

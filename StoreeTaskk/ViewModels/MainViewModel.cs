@@ -13,7 +13,43 @@ using System.Threading.Tasks;
 namespace StoreeTaskk.ViewModels
 {
     public class MainViewModel:BaseViewModel
-    {
+    {  
+        
+        
+        public MainViewModel()
+        {
+            ObservableCollection<Products> products = new ObservableCollection<Products>();
+            ObservableCollection<Categories> categories = new ObservableCollection<Categories>();
+            CategoryService categoryServices = new CategoryService();
+
+            GetAll(products, categories);
+
+            SelectedIndex = categoryServices.SeacrhCategoryName("All products").Id - 1;
+
+            GetAllCategories(CategoriesComboBoxItemSource);
+
+
+
+            SelectionChanged = new RelayCommand((obj) =>
+            {
+                App.wrapPanel.Children.Clear();
+                products.Clear();
+                CategoryService services = new CategoryService();
+
+                var category = services.SeacrhCategoryName("All products");
+
+                repo = new Reposs();
+                GetAllProducts(SelectedItem, category);
+
+            });
+
+            AddProductCommand = new RelayCommand((obj) =>
+            {
+                AddProductWindow addProduct = new AddProductWindow();
+                addProduct.ShowDialog();
+            });
+
+        }
         public RelayCommand AddProductCommand { get; set; }
         private ObservableCollection<Categories> categoriesComboBox = new ObservableCollection<Categories>();
         public ObservableCollection<Categories> CategoriesComboBoxItemSource
@@ -61,40 +97,7 @@ namespace StoreeTaskk.ViewModels
             await repo.AddCategoriesCombobox(categories);
         }
 
-        public MainViewModel()
-        {
-            ObservableCollection<Products> products = new ObservableCollection<Products>();
-            ObservableCollection<Categories> categories = new ObservableCollection<Categories>();
-            CategoryService categoryServices = new CategoryService();
-
-            GetAll(products, categories);
-
-            SelectedIndex = categoryServices.SeacrhCategoryName("All products").Id - 1;
-
-            GetAllCategories(CategoriesComboBoxItemSource);
-
-
-
-            SelectionChanged = new RelayCommand((obj) =>
-            {
-                App.wrapPanel.Children.Clear();
-                products.Clear();
-                CategoryService services = new CategoryService();
-
-                var category = services.SeacrhCategoryName("All products");
-
-                repo = new Reposs();
-                GetAllProducts(SelectedItem, category);
-
-            });
-
-            AddProductCommand = new RelayCommand((obj) =>
-            {
-                AddProductWindow addProduct = new AddProductWindow();
-                addProduct.ShowDialog();
-            });
-
-        }
+     
 
     }
 }

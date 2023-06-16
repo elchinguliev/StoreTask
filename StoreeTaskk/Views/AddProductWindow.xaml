@@ -17,7 +17,7 @@
 
             <Label  FontWeight="UltraBlack" Content="Product category" Canvas.Bottom="80" Canvas.Left="98" FontSize="20" Canvas.Top="180"></Label>
 
-            <ComboBox   Background="Transparent" FontWeight="UltraBlack" Width="140" ItemsSource="{Binding Categories}" SelectedItem="{Binding SelectedItem}" Canvas.Left="322" Canvas.Bottom="50" Canvas.Top="191">
+            <ComboBox    FontWeight="UltraBlack" Width="140" ItemsSource="{Binding Categories}" SelectedItem="{Binding SelectedItem}" Canvas.Left="322" Canvas.Bottom="50" Canvas.Top="191">
                 <i:Interaction.Triggers>
                     <i:EventTrigger EventName="SelectionChanged">
                         <i:InvokeCommandAction Command="{Binding SelectionChanged}"></i:InvokeCommandAction>

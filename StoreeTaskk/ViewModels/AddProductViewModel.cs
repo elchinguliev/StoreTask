@@ -13,7 +13,39 @@ using System.Windows;
 namespace StoreeTaskk.ViewModels
 {
     public class AddProductViewModel:BaseViewModel
-    {
+    {  
+        public AddProductViewModel()
+        {
+            ObservableCollection<Categories> categories = new ObservableCollection<Categories>();
+            ObservableCollection<Products> products = new ObservableCollection<Products>();
+
+            repo = new Reposs();
+            GetCategories(categories);
+
+            Categories = categories;
+
+            AddProductCommand = new RelayCommand((obj) =>
+            {
+                if (ProductName != null && ProductPrice != 0)
+                {
+                    AddProducts();
+                    products.Clear();
+                    GetProducts(products);
+                    App.wrapPanel.Children.Clear();
+                    AddPanel();
+
+                    MessageBox.Show($"Product added successfully");
+                }
+                else
+                {
+                    MessageBox.Show("Invalid Data");
+                }
+            });
+        }
+
+
+
+
         public RelayCommand AddProductCommand { get; set; }
         public RelayCommand SelectionChanged { get; set; }
 
@@ -81,34 +113,7 @@ namespace StoreeTaskk.ViewModels
             await repo.GetAllCategories(categories);
         }
 
-        public AddProductViewModel()
-        {
-            ObservableCollection<Categories> categories = new ObservableCollection<Categories>();
-            ObservableCollection<Products> products = new ObservableCollection<Products>();
-
-            repo = new Reposs();
-            GetCategories(categories);
-
-            Categories = categories;
-
-            AddProductCommand = new RelayCommand((obj) =>
-            {
-                if (ProductName != null && ProductPrice != 0)
-                {
-                    AddProducts();
-                    products.Clear();
-                    GetProducts(products);
-                    App.wrapPanel.Children.Clear();
-                    AddPanel();
-
-                    MessageBox.Show($"Product added successfully");
-                }
-                else
-                {
-                    MessageBox.Show("Invalid Data");
-                }
-            });
-        }
+     
     }
 }
 

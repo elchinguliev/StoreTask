@@ -14,7 +14,54 @@ using System.Windows.Forms;
 namespace StoreeTaskk.ViewModels
 {
     public class ProductUserControlViewModel : BaseViewModel
-    {
+    {  
+        
+        public ProductUserControlViewModel()
+        {
+            ObservableCollection<Products> products = new ObservableCollection<Products>();
+
+            GetAllProducts(products);
+
+            DeleteCommand = new RelayCommand((obj) =>
+            {
+                for (int i = 0; i < products.Count; i++)
+                {
+                    if (products[i].Name == ProductName)
+                    {
+                        DialogResult dialog = System.Windows.Forms.MessageBox.Show("Delete ?", "Delete product", MessageBoxButtons.YesNo);
+                        if (dialog == DialogResult.Yes)
+                        {
+                            DeleteProduct(products, i);
+                            products.Clear();
+                            GetAllProducts(products);
+                            App.wrapPanel.Children.Clear();
+                            AddPanel();
+
+                        }
+                    }
+                }
+            });
+
+            UpdateProductCommand = new RelayCommand((obj) =>
+            {
+                UpdateProductWindow productUpdate = new UpdateProductWindow();
+                UpdateProductViewModel productUpdateUserControl = new UpdateProductViewModel();
+                CategoryService categoryService = new CategoryService();
+
+                var category = categoryService.SearchCategory(Category);
+
+                productUpdateUserControl.ProductName = ProductName;
+
+                productUpdateUserControl.ProductPrice = ProductPrice;
+
+                productUpdateUserControl.ProductCategory = category.Name;
+
+                productUpdate.DataContext = productUpdateUserControl;
+
+                productUpdate.ShowDialog();
+            });
+
+        }
         public RelayCommand DeleteCommand { get; set; }
         public RelayCommand UpdateProductCommand { get; set; }
 
@@ -71,53 +118,6 @@ namespace StoreeTaskk.ViewModels
             await repo.AddPanelUserControl();
         }
 
-        public ProductUserControlViewModel()
-        {
-            ObservableCollection<Products> products = new ObservableCollection<Products>();
-
-            GetAllProducts(products);
-
-            DeleteCommand = new RelayCommand((obj) =>
-            {
-                for (int i = 0; i < products.Count; i++)
-                {
-                    if (products[i].Name == ProductName)
-                    {
-                        DialogResult dialog = System.Windows.Forms.MessageBox.Show("Delete ?", "Delete product", MessageBoxButtons.YesNo);
-                        if (dialog == DialogResult.Yes)
-                        {
-                            DeleteProduct(products, i);
-                            products.Clear();
-                            GetAllProducts(products);
-                            App.wrapPanel.Children.Clear();
-                            AddPanel();
-
-                        }
-                    }
-                }
-            });
-
-            UpdateProductCommand = new RelayCommand((obj) =>
-            {
-                UpdateProductWindow productUpdate = new UpdateProductWindow();
-                UpdateProductViewModel productUpdateUserControl = new UpdateProductViewModel();
-                CategoryService categoryService = new CategoryService();
-
-                var category = categoryService.SearchCategory(Category);
-
-                productUpdateUserControl.ProductName = ProductName;
-
-                productUpdateUserControl.ProductPrice = ProductPrice;
-
-                productUpdateUserControl.ProductCategory = category.Name;
-
-                productUpdate.DataContext = productUpdateUserControl;
-
-                productUpdate.ShowDialog();
-            });
-
-
-
-        }
+     
     }
 }
