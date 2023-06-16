@@ -1,0 +1,38 @@
+﻿<Window x:Class="StoreeTaskk.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:StoreeTaskk" xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800" Background="LightYellow">
+    <Grid x:Name="myDataGrid">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="80"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <ScrollViewer Grid.Row="1">
+            <WrapPanel Name="wrapPanel" Orientation="Horizontal"></WrapPanel>
+        </ScrollViewer>
+
+
+        <!--<Image Grid.Row="0" Source="/Images/store symbol.jpg"  Margin="-500,0,0,0"></Image>-->
+        <Image Grid.Row="0" Source="https://img.etimg.com/thumb/width-1200,height-900,imgsize-122620,resizemode-1,msid-75214721/industry/services/retail/future-group-negotiates-rents-for-its-1700-stores.jpg" Margin="-303,-10,-197,10" RenderTransformOrigin="0.562,0.528"/>
+
+        <!--<ComboBox ItemsSource="{Binding CategoriesComboBoxItemSource}" SelectedItem="{Binding SelectedItem}"  SelectedIndex="{Binding SelectedIndex}"  Width="200" Height="40">
+            -->
+        <!--<i:Interaction.Triggers>
+                <i:EventTrigger EventName="SelectionChanged">
+                    <i:InvokeCommandAction Command="{Binding SelectionChanged}"></i:InvokeCommandAction>
+                </i:EventTrigger>
+            </i:Interaction.Triggers>-->
+        <!--
+        </ComboBox >-->
+        <ComboBox ItemsSource="{Binding CategoriesComboBoxItemSource}" SelectedItem="{Binding SelectedItem}"  SelectedIndex="{Binding SelectedIndex}"  Width="200" Height="40" Margin="600,397,0,-83" Grid.Row="1"></ComboBox>
+
+        <Button Background="Red" Command="{Binding AddProductCommand}" Width="200" Height="40" Margin="600,474,0,-160" Content="Add product" FontSize="20" FontWeight="UltraBlack" Grid.Row="1"  >
+
+        </Button>
+
+    </Grid>
+</Window>

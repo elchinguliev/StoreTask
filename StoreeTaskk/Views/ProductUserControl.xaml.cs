@@ -13,14 +13,14 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace StoreeTaskk
+namespace StoreeTaskk.Views
 {
     /// <summary>
-    /// Interaction logic for MainWindow.xaml
+    /// Interaction logic for ProductUserControl.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class ProductUserControl : UserControl
     {
-        public MainWindow()
+        public ProductUserControl()
         {
             InitializeComponent();
         }

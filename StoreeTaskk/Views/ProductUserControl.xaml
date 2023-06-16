@@ -1,0 +1,33 @@
+﻿<UserControl x:Class="StoreeTaskk.Views.ProductUserControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:StoreeTaskk.Views"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800" Background="LightYellow">
+    <Grid>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="150"/>
+            <RowDefinition Height="100"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+
+        <Border Background="WhiteSmoke"></Border>
+
+        <Image Source="{Binding Image}" Grid.Row="0" Name="previre" Width="250" Height="150"></Image>
+
+      
+
+        <TextBlock Text="{Binding ProductName}" Grid.Row="1" Name="my" Margin="30,15,520,0" VerticalAlignment="Top" Width="250" Height="60" TextWrapping="Wrap" TextOptions.TextFormattingMode="Ideal" FontSize="20" Background="Red"  FontWeight="UltraBlack" Canvas.Bottom="110"/>
+
+        <Label BorderBrush="Black" Grid.Row="1" Margin="325,30,315,0" Content="{Binding ProductPrice,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" Canvas.Left="25" VerticalAlignment="Top" Width="160" Height="30" TextOptions.TextFormattingMode="Ideal" FontSize="20" Background="White"  FontWeight="UltraBlack" />
+
+        <Button Command="{Binding DeleteCommand}" Grid.Row="1" Margin="602,8,98,52" Width="100" Height="40" Canvas.Bottom="10" Background="Red" Canvas.Left="20" Content="Delete" FontSize="20" FontWeight="UltraBlack">
+        </Button>
+
+        <Button Command="{Binding UpdateProductCommand}" Grid.Row="1" Margin="602,55,98,5" Width="100" Height="40" Canvas.Right="20" Background="Red" Canvas.Bottom="10" Content="Update" FontSize="20" FontWeight="UltraBlack">
+        </Button>
+    </Grid>
+</UserControl>
