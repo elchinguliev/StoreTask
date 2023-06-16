@@ -92,7 +92,7 @@ namespace StoreeTaskk.ViewModels
             repo= new Reposs();
             await repo.GetAllProducts(products);
         }
-
+        
         public async void AddProducts()
         {
             repo= new Reposs();
